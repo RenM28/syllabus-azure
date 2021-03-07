@@ -17,7 +17,6 @@ function serveStaticFile(res, path, contentType, responseCode = 200) {
 }
 
 const server = http.createServer((req,res) => {
-	console.log(request)
 	// normalize url
 	const path = req.url.replace(/\/?(?:\?.*)?$/, '').toLowerCase()
 	switch(path) {
