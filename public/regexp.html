@@ -1,0 +1,78 @@
+<!--
+Author: Ren Gernes
+Class: Software Engineering
+Project: Lab2/RegExp Tester
+Description: This is the initial version 
+of my regexp tester and is being submitted
+as part of Lab 2
+-->
+
+<!doctype html>
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8" name="viewport" content="width=device-width, 
+		initial-scale=1.0">
+		<title> RegExp Tester </title>
+	
+	<!-- Page styling -->
+	<style>
+		html, body {
+			height: 100%;
+			font-family: verdana;
+			background-color: aliceblue;
+		}
+		
+		.main {
+			width: 100%;
+			height: 100%;
+			display: table;
+			text-align: center;
+		}
+		
+		.main > .main2 {
+			display: table-cell;
+			vertical-align: middle;
+		}
+		
+		input {
+			margin-right: 20px;
+		}
+	</style>
+	
+	<!-- Function that takes in string + regular expression
+	and tests to see if the expression can be found in the string.
+	Displays result of true/false to output element.
+	Inputs: regular expression and phrase as strings -->
+	<script>
+		function testRegExp(regExp, text) {
+			const regex = new RegExp(regExp);
+			result = regex.test(text);
+			document.getElementById("display").value = result;
+		}
+	</script>
+	</head>
+	
+	<body>
+		<!-- Section + div center text in page -->
+		<section class="main">
+			<div class="main2">
+				<!-- Phrase to test reg ex against -->
+				<label>Phrase: </label>
+				<input type="text" id="phrase"></input>
+				
+				<!-- Expression to search phrase for -->
+				<label>Regular Expression: </label>
+				<input type="text" id="expr"></input>
+				
+				<!-- returns true if match, false otherwise -->
+				<button onclick="testRegExp(document.getElementById('expr').value,
+				document.getElementById('phrase').value)">Test Expression</button>
+				<br><br><br>
+				
+				<!-- displays true or false result -->
+				<label>Result: </label>
+				<output id="display"></output>
+			</div>
+		</section>
+	</body>
+</html>
